@@ -1,0 +1,42 @@
+.header {
+  background-color: #2874f0;
+}
+.header__logo {
+  width: 100px;
+  /* margin: 0 40px; */
+}
+.heading__searchbar {
+  background: #fff;
+}
+input.header__searchinput {
+  width: 90%;
+  border: none;
+}
+.heading__searchicon {
+  color: #2874f0;
+}
+button.header__loginbtn {
+  color: #2874f0;
+  height: 25px;
+  line-height: 2px;
+  border-radius: 0%;
+  padding: 0 40px;
+}
+button.header__loginbtn:active {
+  outline: none;
+}
+.header__link {
+  position: relative;
+}
+.header__link:hover {
+  text-decoration: none;
+}
+.heading__basketcount {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  background-color: red;
+  padding: 1px 3px;
+  border-radius: 50%;
+  font-size: smaller;
+}

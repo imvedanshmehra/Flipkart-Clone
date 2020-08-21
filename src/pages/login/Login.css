@@ -1,0 +1,31 @@
+form.login__form {
+  position: relative;
+  height: 45vh;
+}
+.password-container {
+  position: relative;
+}
+.hide-show-btn {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+
+  margin: 0 15px;
+}
+button.login-btn {
+  background-color: rgb(251, 100, 27);
+  border-radius: 0;
+  border: none;
+  outline: none;
+}
+button.login-btn:hover {
+  background-color: rgb(251, 100, 27);
+}
+.signup {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #2874f0;
+  font-size: smaller;
+  font-weight: bold;
+}

@@ -1,0 +1,42 @@
+svg.products__wishlist {
+  position: absolute;
+  right: 0;
+  color: lightgrey;
+  cursor: pointer;
+}
+svg.products__wishlist__active {
+  position: absolute;
+  right: 0;
+  color: #ff6161;
+  cursor: pointer;
+}
+img.products__image {
+  width: 50px;
+}
+.products__rating {
+  background-color: rgb(56, 142, 60);
+  color: #fff;
+  padding: 0px 14px;
+  height: 22px;
+  font-size: small;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+div.products__price__container {
+  margin-top: 8px;
+}
+svg.product__rating__icon {
+  margin-bottom: 1px;
+}
+span.products__price {
+  font-size: large;
+}
+span.products__discounted__price {
+  margin: 0 5px;
+  font-weight: lighter;
+  color: #87929e;
+}
+span.products__discount {
+  color: rgb(56, 142, 60);
+  font-weight: 700;
+}
