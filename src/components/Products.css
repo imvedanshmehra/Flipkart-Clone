@@ -1,3 +1,6 @@
+.product__contianer {
+  background-color: #fff;
+}
 svg.products__wishlist {
   position: absolute;
   right: 0;
@@ -39,4 +42,24 @@ span.products__discounted__price {
 span.products__discount {
   color: rgb(56, 142, 60);
   font-weight: 700;
+}
+button.add-btn {
+  cursor: pointer;
+  width: 50%;
+  margin: 0 auto;
+  transition: 0.2s all;
+  background-color: #ff9f00;
+  border: none;
+}
+button.add-btn:hover {
+  background-color: #ff9f00;
+  opacity: 0.9;
+}
+button.add-btn:active {
+  background-color: #ff9f00;
+}
+button.add-btn:focus {
+  box-shadow: none !important;
+  transform: scale(0.98);
+  background-color: #ff9f00;
 }

@@ -1,0 +1,33 @@
+input.signup-email,
+input.signup-password {
+  border-radius: 0;
+}
+input.signup-email:focus,
+input.signup-password:focus {
+  box-shadow: none;
+}
+button.next-btn {
+  float: right;
+  width: 48%;
+  margin: 2px;
+  background-color: rgb(251, 100, 27);
+  border-radius: 0;
+  border: none;
+}
+button.prev-btn {
+  width: 48%;
+  margin: 2px;
+  background-color: rgb(251, 100, 27);
+  border-radius: 0;
+  border: none;
+}
+button.next-btn:hover,
+button.prev-btn:hover {
+  opacity: 0.9;
+  background-color: rgb(251, 100, 27);
+}
+button.next-btn:focus,
+button.prev-btn:focus {
+  box-shadow: none;
+  background-color: rgb(251, 100, 27);
+}

@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "../components/ProductSlider.css";
 
-const ProductSlider: React.FC = (props: any) => {
+const ProductSlider: React.FC = (props) => {
   const settings = {
     arrows: true,
     infinite: true,

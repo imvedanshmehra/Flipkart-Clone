@@ -2,15 +2,12 @@ form.login__form {
   position: relative;
   height: 45vh;
 }
-.password-container {
-  position: relative;
+input.login-inputs:valid,
+input.login-inputs:invalid {
+  background-position: 85% 60% !important;
 }
-.hide-show-btn {
-  position: absolute;
-  right: 0;
-  bottom: 5px;
-
-  margin: 0 15px;
+input.login-inputs:focus {
+  box-shadow: none;
 }
 button.login-btn {
   background-color: rgb(251, 100, 27);
@@ -28,4 +25,11 @@ button.login-btn:hover {
   color: #2874f0;
   font-size: smaller;
   font-weight: bold;
+}
+a.signup-link {
+  display: flex;
+  justify-content: center;
+}
+a.signup-link:hover {
+  text-decoration: none;
 }

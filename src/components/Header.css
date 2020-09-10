@@ -8,9 +8,13 @@
 .heading__searchbar {
   background: #fff;
 }
+
 input.header__searchinput {
   width: 90%;
   border: none;
+}
+input.header__searchinput:focus {
+  outline: none;
 }
 .heading__searchicon {
   color: #2874f0;
@@ -22,8 +26,9 @@ button.header__loginbtn {
   border-radius: 0%;
   padding: 0 40px;
 }
+button.header__loginbtn:focus,
 button.header__loginbtn:active {
-  outline: none;
+  box-shadow: none;
 }
 .header__link {
   position: relative;

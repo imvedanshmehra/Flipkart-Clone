@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Homepage from "./pages/homepage/Homepage";
 import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
+import Checkout from "./pages/checkout/Checkout";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "~slick-carousel/slick/slick.css";
-// import "~slick-carousel/slick/slick-theme.css";
-
 import "./App.css";
 
 const App: React.FC = () => {
@@ -14,9 +13,13 @@ const App: React.FC = () => {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/signup">
+            <Header />
+            <Signup />
+          </Route>
           <Route path="/checkout">
             <Header />
-            <h1>checkout</h1>
+            <Checkout />
           </Route>
           <Route path="/login">
             <Header />

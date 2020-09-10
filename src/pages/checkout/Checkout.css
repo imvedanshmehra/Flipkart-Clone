@@ -1,0 +1,23 @@
+.empty__cart {
+  text-align: center;
+}
+.emptycart__img {
+  width: 20%;
+}
+.order__btn__container {
+  position: relative;
+  width: 100%;
+}
+.order__btn__container button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 0;
+  background-color: #fb641b;
+  color: #fff;
+  font-size: larger;
+}
+.order__btn__container button:hover {
+  color: #fff;
+  opacity: 0.9;
+}

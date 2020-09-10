@@ -5,10 +5,12 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-
+import { useStateValue } from "./MyContext";
 import "./Header.css";
 
-const Header = () => {
+const Header: React.FC = () => {
+  // @ts-ignore
+  const [{ basket }] = useStateValue();
   return (
     <Navbar className="header" sticky="top">
       <Link to="/">
@@ -33,7 +35,7 @@ const Header = () => {
       <Link to="/checkout" className="header__link">
         <h6 className="text-white ml-4 mt-2">
           <FontAwesomeIcon icon={faShoppingCart} />
-          <span className="heading__basketcount">0 </span>
+          <span className="heading__basketcount">{basket.length} </span>
           <span> Cart</span>
         </h6>
       </Link>
