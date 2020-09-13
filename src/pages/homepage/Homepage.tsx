@@ -51,7 +51,14 @@ const Homepage: React.FC = () => {
             image={
               "https://rukminim1.flixcart.com/image/312/312/k65d18w0pkrrdj/mobile/r/x/z/realme-5i-rmx2030-original-imafnsx5pakdfdpb.jpeg?q=70"
             }
-            discountedPrice="17,999"
+            discountedPrice={
+              <NumberFormat
+                prefix="₹"
+                value={17999}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
+            }
             discount={11}
           />
         </div>
@@ -71,7 +78,14 @@ const Homepage: React.FC = () => {
             image={
               "https://rukminim1.flixcart.com/image/312/312/k9loccw0/mobile/p/z/q/apple-iphone-se-mxd02hn-a-original-imafrcpjfehbbqgb.jpeg?q=70"
             }
-            discountedPrice="42,500"
+            discountedPrice={
+              <NumberFormat
+                prefix="₹"
+                value={42500}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
+            }
             discount={12}
           />
         </div>
@@ -91,7 +105,14 @@ const Homepage: React.FC = () => {
             image={
               "https://rukminim1.flixcart.com/image/416/416/k2jbyq80pkrrdj/mobile-refurbished/x/9/r/reno2-f-128-a-cph1989-oppo-8-original-imafh2ctdbn9rbgk.jpeg?q=70"
             }
-            discountedPrice="19,990"
+            discountedPrice={
+              <NumberFormat
+                prefix="₹"
+                value={17999}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
+            }
             discount={10}
           />
         </div>
@@ -111,7 +132,14 @@ const Homepage: React.FC = () => {
             image={
               "https://rukminim1.flixcart.com/image/312/312/kbzergw0/mobile/e/v/n/i-kall-k300-new-k300-new-original-imaft7hn9etwxd5y.jpeg?q=70"
             }
-            discountedPrice="9,999"
+            discountedPrice={
+              <NumberFormat
+                prefix="₹"
+                value={17999}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
+            }
             discount={11}
           />
         </div>
@@ -131,7 +159,14 @@ const Homepage: React.FC = () => {
             image={
               "https://rukminim1.flixcart.com/image/312/312/k65d18w0pkrrdj/mobile/r/x/z/realme-5i-rmx2030-original-imafnsx5pakdfdpb.jpeg?q=70"
             }
-            discountedPrice="17,999"
+            discountedPrice={
+              <NumberFormat
+                prefix="₹"
+                value={17999}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
+            }
             discount={11}
           />
         </div>
@@ -151,7 +186,14 @@ const Homepage: React.FC = () => {
             image={
               "https://rukminim1.flixcart.com/image/312/312/k65d18w0pkrrdj/mobile/r/x/z/realme-5i-rmx2030-original-imafnsx5pakdfdpb.jpeg?q=70"
             }
-            discountedPrice="17,999"
+            discountedPrice={
+              <NumberFormat
+                prefix="₹"
+                value={17999}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
+            }
             discount={11}
           />
         </div>
@@ -171,7 +213,14 @@ const Homepage: React.FC = () => {
             image={
               "https://rukminim1.flixcart.com/image/312/312/k65d18w0pkrrdj/mobile/r/x/z/realme-5i-rmx2030-original-imafnsx5pakdfdpb.jpeg?q=70"
             }
-            discountedPrice="17,999"
+            discountedPrice={
+              <NumberFormat
+                prefix="₹"
+                value={17999}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
+            }
             discount={11}
           />
         </div>

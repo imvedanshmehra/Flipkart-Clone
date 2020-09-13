@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import EmailInput from "../../components/EmailInput";
 import PasswordInput from "../../components/PasswordInput";
+import Jumbotron from "react-bootstrap/esm/Jumbotron";
 import "../signup/Signup.css";
 
 const Signup: React.FC = () => {
@@ -52,8 +53,8 @@ const Signup: React.FC = () => {
     }
   };
   return (
-    <Fragment>
-      <Form className="w-25 ml-auto mr-auto mt-5">
+    <Jumbotron className="bg-white w-25 mr-auto ml-auto mt-5 shadow-sm">
+      <Form>
         <div>{Step1()}</div>
         <div>{Step2()}</div>
         <div>{Step3()}</div>
@@ -76,7 +77,7 @@ const Signup: React.FC = () => {
         )}
         {currentStep !== 3 ? null : <Button>Sign up</Button>}
       </Form>
-    </Fragment>
+    </Jumbotron>
   );
 };
 

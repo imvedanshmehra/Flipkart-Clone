@@ -12,7 +12,7 @@ type IProps = {
   title: string;
   image: string;
   price: JSX.Element;
-  discountedPrice?: string | number;
+  discountedPrice?: JSX.Element;
   discount?: number;
 };
 
@@ -26,6 +26,7 @@ const Products: React.FC<IProps> = ({
   discount,
 }) => {
   const [wishlisted, setWishlisted] = useState<boolean>(false);
+  const [buttonText, setButtonText] = useState<string>(" ADD TO CART");
 
   // @ts-ignore
   const [{ basket }, dispatch] = useStateValue();
@@ -42,6 +43,7 @@ const Products: React.FC<IProps> = ({
         discount,
       },
     });
+    setButtonText("ADDED TO CART");
   };
 
   return (
@@ -82,14 +84,18 @@ const Products: React.FC<IProps> = ({
         <div className="products__price__container">
           <span className="products__price">{price}</span>
           <span className="products__discounted__price">
-            <del> ₹{discountedPrice}</del>
+            <del> {discountedPrice}</del>
           </span>
           <small>
             <span className="products__discount"> {discount}% off</span>
           </small>
         </div>
-        <Button className="add-btn" onClick={addToBasket}>
-          ADD TO CART
+        <Button
+          className="add-btn"
+          onClick={addToBasket}
+          disabled={buttonText === "ADDED TO CART"}
+        >
+          {buttonText}
         </Button>
       </Card>
     </div>

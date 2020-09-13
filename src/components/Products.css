@@ -58,6 +58,10 @@ button.add-btn:hover {
 button.add-btn:active {
   background-color: #ff9f00;
 }
+button.add-btn:disabled {
+  background-color: #ff9f00;
+  opacity: 0.6;
+}
 button.add-btn:focus {
   box-shadow: none !important;
   transform: scale(0.98);

@@ -1,10 +1,11 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import EmailInput from "../../components/EmailInput";
 import PasswordInput from "../../components/PasswordInput";
 import "../login/Login.css";
+import Jumbotron from "react-bootstrap/esm/Jumbotron";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -20,9 +21,9 @@ const Login: React.FC = () => {
   };
 
   return (
-    <Fragment>
+    <Jumbotron className="bg-white w-25 ml-auto mr-auto mt-5 shadow-sm">
       <Form
-        className="w-25 ml-auto mr-auto mt-5 login__form"
+        className=" ml-auto  login__form"
         noValidate
         validated={validated}
         onSubmit={handleSubmit}
@@ -47,7 +48,7 @@ const Login: React.FC = () => {
           </Link>
         </div>
       </Form>
-    </Fragment>
+    </Jumbotron>
   );
 };
 export default Login;

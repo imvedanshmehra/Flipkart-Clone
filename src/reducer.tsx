@@ -8,6 +8,12 @@ export const getBasketTotal = (basket: any) =>
     0
   );
 
+export const totalDiscount = (basket: any) =>
+  basket?.reduce(
+    (amount: any, item: any) => item.discountedPrice.props.value + amount,
+    0
+  );
+
 const reducer = (state: any, action: any) => {
   console.log(action);
   switch (action.type) {

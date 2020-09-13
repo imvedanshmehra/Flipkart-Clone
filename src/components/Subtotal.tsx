@@ -3,7 +3,7 @@ import Row from "react-bootstrap/row";
 import Col from "react-bootstrap/col";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { useStateValue } from "./MyContext";
-import { getBasketTotal } from "../reducer";
+import { getBasketTotal, totalDiscount } from "../reducer";
 import NumberFormat from "react-number-format";
 
 const Subtotal: React.FC = () => {
@@ -12,7 +12,7 @@ const Subtotal: React.FC = () => {
   console.log(getBasketTotal(basket));
   return (
     <Fragment>
-      <Jumbotron className="bg-white mt-4 mb-4 p-2">
+      <Jumbotron className="bg-white mt-4 mb-4 p-2 ">
         <h6 className="text-secondary ">PRICE DETAILS</h6>
         <hr />
         <Row>
@@ -33,9 +33,43 @@ const Subtotal: React.FC = () => {
           <Col sm={6}>
             <h6>Delivery Charges </h6>
           </Col>
-          <Col className="text-right text-success">FREE</Col>
+          <Col className="text-right text-success ">FREE</Col>
         </Row>
+        <hr />
+        <Row>
+          <Col sm={6}>
+            <h5>Total Amount</h5>
+          </Col>
+          <Col sm={6} className="text-right">
+            <b>
+              <NumberFormat
+                className="text-lead"
+                prefix="₹"
+                value={getBasketTotal(basket)}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
+            </b>
+          </Col>
+        </Row>
+        <hr />
+        <h6 className="text-success">
+          You will save{" "}
+          {
+            <NumberFormat
+              className="text-lead"
+              prefix="₹"
+              value={totalDiscount(basket) - getBasketTotal(basket)}
+              displayType={"text"}
+              thousandSeparator={true}
+            />
+          }{" "}
+          on this order
+        </h6>
       </Jumbotron>
+      <p className="text-secondary text-small ">
+        Safe and Secure Payments.Easy returns.100% Authentic products.
+      </p>
     </Fragment>
   );
 };

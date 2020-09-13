@@ -1,3 +1,4 @@
+// @ts-ignore
 import { firebase } from "firebase";
 
 var firebaseConfig = {
@@ -9,7 +10,7 @@ var firebaseConfig = {
   messagingSenderId: "973430845168",
   appId: "1:973430845168:web:631fdbf9c4d80871401c35",
 };
-
+// @ts-ignore
 const firebase = firebase.initializeApp(firebaseConfig);
 
 export default firebase;

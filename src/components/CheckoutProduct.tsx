@@ -1,10 +1,9 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { useStateValue } from "./MyContext";
 import Col from "react-bootstrap/col";
 import Container from "react-bootstrap/container";
 import Row from "react-bootstrap/Row";
 import "./CheckoutProduct.css";
-import { constants } from "crypto";
 
 interface IProps {
   id: number;
@@ -17,6 +16,7 @@ interface IProps {
 
 const CheckoutProduct: React.FC<IProps> = (props) => {
   const [itemNumber, setItemNumber] = useState<number>(1);
+
   // @ts-ignore
   const [{ basket }, dispatch] = useStateValue();
   const removeProduct = (): void => {
@@ -26,6 +26,10 @@ const CheckoutProduct: React.FC<IProps> = (props) => {
     });
   };
 
+  useEffect(() => {
+    itemNumber === 0 && removeProduct();
+    setItemNumber(1);
+  }, [itemNumber]);
   let deliveryDate: string;
   const m_names: string[] = new Array(
     "January",
@@ -47,6 +51,7 @@ const CheckoutProduct: React.FC<IProps> = (props) => {
   const curr_month: number = d.getMonth();
   const curr_year: number = d.getFullYear();
   deliveryDate = fiveDaysLater + " " + m_names[curr_month] + " " + curr_year;
+
   return (
     <Fragment>
       <hr />
@@ -55,13 +60,17 @@ const CheckoutProduct: React.FC<IProps> = (props) => {
           <Col sm={2} className="checkout__product">
             <img src={props.image} className="checkout__product__img" />
             <div>
-              <button>-</button>
+              <button onClick={(): void => setItemNumber(itemNumber - 1)}>
+                -
+              </button>
               <input
                 type="text"
                 value={itemNumber}
                 className="w-25 text-center ml-1 mr-1"
               />
-              <button>+</button>
+              <button onClick={(): void => setItemNumber(itemNumber + 1)}>
+                +
+              </button>
             </div>
           </Col>
           <Col sm={5} className="text-start mt-3">
@@ -72,7 +81,7 @@ const CheckoutProduct: React.FC<IProps> = (props) => {
                 <h5 className="d-inline mr-2">{props.price}</h5>
               </span>
               <span className="checkout__product__discounted__price">
-                <del>₹{props.discountedPrice}</del>
+                <del>{props.discountedPrice}</del>
               </span>
               <small>
                 <span className="checkout__product__discount">
@@ -91,7 +100,7 @@ const CheckoutProduct: React.FC<IProps> = (props) => {
               <small>
                 {" "}
                 Delivery by {deliveryDate} |{" "}
-                <span className="checkout__product__discount font-weight-light">
+                <span className="checkout__product__discount">
                   FREE <del>₹80</del>
                 </span>
               </small>
