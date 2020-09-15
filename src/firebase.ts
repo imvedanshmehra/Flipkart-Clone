@@ -1,7 +1,7 @@
-// @ts-ignore
-import { firebase } from "firebase";
+import * as firebase from "firebase/app";
+import "firebase/auth";
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDSxXUqnR8AgNVCmZiJ6RBVWbYalXlXK5c",
   authDomain: "sk-store-2b052.firebaseapp.com",
   databaseURL: "https://sk-store-2b052.firebaseio.com",
@@ -10,7 +10,9 @@ var firebaseConfig = {
   messagingSenderId: "973430845168",
   appId: "1:973430845168:web:631fdbf9c4d80871401c35",
 };
-// @ts-ignore
-const firebase = firebase.initializeApp(firebaseConfig);
 
-export default firebase;
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+
+export { auth };

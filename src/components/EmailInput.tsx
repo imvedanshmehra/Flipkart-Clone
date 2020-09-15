@@ -19,6 +19,7 @@ const EmailInput: React.FC<IProps> = (props) => {
         value={props.value}
         onChange={props.handleChange}
       />
+      
     </Form.Group>
   );
 };

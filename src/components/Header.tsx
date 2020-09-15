@@ -6,11 +6,19 @@ import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useStateValue } from "./MyContext";
+import { auth } from "../firebase";
 import "./Header.css";
 
 const Header: React.FC = () => {
   // @ts-ignore
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
+
+  const handleAuthentication = (): void => {
+    if (user) {
+      auth.signOut();
+    }
+  };
+
   return (
     <Navbar className="header" sticky="top">
       <Link to="/">
@@ -26,9 +34,13 @@ const Header: React.FC = () => {
         <FontAwesomeIcon icon={faSearch} className="heading__searchicon " />
       </span>
 
-      <Link to="/login">
-        <Button variant="light" className="header__loginbtn ml-5 mr-5">
-          Login
+      <Link to={user ? "./" : "./login"}>
+        <Button
+          variant="light"
+          className="header__loginbtn ml-5 mr-5"
+          onClick={handleAuthentication}
+        >
+          {user ? `Hello ${user.email}` : "Login"}
         </Button>
       </Link>
 

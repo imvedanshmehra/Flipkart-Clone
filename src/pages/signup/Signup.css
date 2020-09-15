@@ -6,6 +6,12 @@ input.signup-email:focus,
 input.signup-password:focus {
   box-shadow: none;
 }
+input.signup-email:valid,
+input.signup-email:invalid,
+input.signup-password:invalid,
+input.signup-password:valid {
+  background-position: 85% 60% !important;
+}
 button.next-btn {
   float: right;
   width: 48%;
