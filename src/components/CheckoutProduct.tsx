@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useStateValue } from "./MyContext";
-import Col from "react-bootstrap/col";
-import Container from "react-bootstrap/container";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "./CheckoutProduct.css";
 
