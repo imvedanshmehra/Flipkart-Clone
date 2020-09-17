@@ -10,9 +10,6 @@ button.slick-arrow.slick-prev::before {
   background-size: contain;
   width: 30px;
   height: 30px;
-  /* -webkit-box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.75); */
   content: "";
 }
 button.slick-arrow.slick-next {
