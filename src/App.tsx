@@ -16,8 +16,6 @@ const App: React.FC = () => {
 
   useEffect((): void => {
     auth.onAuthStateChanged((authUser) => {
-      console.log("The user is >>>", authUser);
-
       if (authUser) {
         // the user just logged in or was loggedin
         dispatch({
