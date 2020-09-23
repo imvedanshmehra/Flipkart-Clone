@@ -8,13 +8,15 @@ span.carousel-control-prev-icon {
   position: absolute;
   left: 0;
   background-color: #000000;
-  padding: 50px 16px;
+  height: 100px;
+  width: 15%;
   border-radius: 0 5px 5px 0;
 }
 span.carousel-control-next-icon {
   position: absolute;
   right: 0;
   background-color: #000000;
-  padding: 50px 16px;
+  height: 100px;
+  width: 15%;
   border-radius: 5px 0 0 5px;
 }

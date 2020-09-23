@@ -7,7 +7,6 @@ import Signup from "./pages/signup/Signup";
 import Checkout from "./pages/checkout/Checkout";
 import { auth } from "./firebase";
 import { useStateValue } from "./components/MyContext";
-
 import "./App.css";
 
 const App: React.FC = () => {
