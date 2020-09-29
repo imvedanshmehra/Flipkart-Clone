@@ -26,8 +26,15 @@ button.header__loginbtn {
   border-radius: 0%;
   padding: 0 40px;
 }
+.login__dropdown {
+  color: #2874f0;
+  padding: 0 15px;
+  border-radius: 0;
+}
 button.header__loginbtn:focus,
-button.header__loginbtn:active {
+button.header__loginbtn:active,
+.login__dropdown:focus,
+.login__dropdown:active {
   box-shadow: none;
 }
 .header__link {

@@ -1,15 +1,11 @@
-input.signup-email,
-input.signup-password {
+input.signup-input {
   border-radius: 0;
 }
-input.signup-email:focus,
-input.signup-password:focus {
+input.signup-input:focus {
   box-shadow: none;
 }
-input.signup-email:valid,
-input.signup-email:invalid,
-input.signup-password:invalid,
-input.signup-password:valid {
+input.signup-input:valid,
+input.signup-input:invalid {
   background-position: 85% 60% !important;
 }
 button.next-btn {

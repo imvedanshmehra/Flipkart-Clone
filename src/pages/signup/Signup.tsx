@@ -13,6 +13,7 @@ const Signup: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
   const [validated, setValidated] = useState<boolean>(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -25,11 +26,17 @@ const Signup: React.FC = () => {
       setValidated(true);
       auth
         .createUserWithEmailAndPassword(email, password)
-        .then((auth: any) => {
-          console.log(auth);
-          auth && history.push("./");
+        .then((user: {}) => {
+          if (user) {
+            auth.currentUser
+              ?.updateProfile({
+                displayName: userName,
+              })
+              .then(() => {
+                auth && history.push("./");
+              });
+          }
         })
-        // @ts-ignore
         .catch((error) => alert(error.message));
     }
   };
@@ -40,7 +47,7 @@ const Signup: React.FC = () => {
     } else {
       return (
         <EmailInput
-          class="signup-email"
+          class="signup-input"
           value={email}
           handleChange={(e) => setEmail(e.target.value)}
         />
@@ -54,16 +61,29 @@ const Signup: React.FC = () => {
       return (
         <Fragment>
           <PasswordInput
-            class="signup-password"
+            class="signup-input"
             placeHolder="Set Password"
             value={password}
             handleChange={(e) => setPassword(e.target.value)}
           />
-          <PasswordInput
-            class="signup-password"
-            placeHolder="Confirm password"
-          />
+          <PasswordInput class="signup-input" placeHolder="Confirm password" />
         </Fragment>
+      );
+    }
+  };
+  const Step3 = (): JSX.Element | null => {
+    if (currentStep !== 3) {
+      return null;
+    } else {
+      return (
+        <Form>
+          <Form.Control
+            className="signup-input mb-2"
+            placeholder="Enter your name"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </Form>
       );
     }
   };
@@ -73,6 +93,7 @@ const Signup: React.FC = () => {
       <Form onSubmit={handleSubmit} noValidate validated={validated}>
         <div>{Step1()}</div>
         <div>{Step2()}</div>
+        <div>{Step3()}</div>
 
         {currentStep === 1 ? null : (
           <Button
@@ -83,7 +104,7 @@ const Signup: React.FC = () => {
           </Button>
         )}
 
-        {currentStep === 2 ? null : (
+        {currentStep === 3 ? null : (
           <Button
             className="next-btn p-2"
             // onClick={() => setCurrentStep(currentStep + 1)}
@@ -92,7 +113,7 @@ const Signup: React.FC = () => {
             Continue
           </Button>
         )}
-        {currentStep !== 2 ? null : (
+        {currentStep !== 3 ? null : (
           <Button className="next-btn p-2" type="submit">
             Sign up
           </Button>

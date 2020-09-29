@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useStateValue } from "./MyContext";
@@ -11,7 +12,7 @@ import "./Header.css";
 
 const Header: React.FC = () => {
   // @ts-ignore
-  const [{ basket, user }, dispatch] = useStateValue();
+  let [{ basket, user }, dispatch] = useStateValue();
 
   const handleAuthentication = (): void => {
     if (user) {
@@ -35,13 +36,28 @@ const Header: React.FC = () => {
       </span>
 
       <Link to={user ? "./" : "./login"}>
-        <Button
-          variant="light"
-          className="header__loginbtn ml-5 mr-5"
-          onClick={handleAuthentication}
-        >
-          {user ? `Hello ${user.email}` : "Login"}
-        </Button>
+        {user ? (
+          <Dropdown>
+            <Dropdown.Toggle
+              variant="light"
+              className="ml-5 mr-5 login__dropdown"
+            >
+              {`Hello ${user.displayName}!`}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item
+                className="login__dropdown"
+                onClick={handleAuthentication}
+              >
+                Logout
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        ) : (
+          <Button variant="light" className="header__loginbtn ml-5 mr-5">
+            Login
+          </Button>
+        )}
       </Link>
 
       <Link to="/checkout" className="header__link">

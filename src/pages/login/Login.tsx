@@ -14,7 +14,6 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [validated, setValidated] = useState<boolean>(false);
-  const [alertMessage, setAlertMessage] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -30,13 +29,12 @@ const Login: React.FC = () => {
           auth && history.push("./");
         })
         // @ts-ignore
-        .catch((error) => setALertMessage(error));
+        .catch((error) => alert(error));
     }
   };
 
   return (
     <Jumbotron className="bg-white w-25 ml-auto mr-auto mt-5 shadow-sm">
-      {alertMessage ? <Alert variant="danger">!{alertMessage}</Alert> : null}
       <Form
         className=" ml-auto  login__form"
         noValidate
