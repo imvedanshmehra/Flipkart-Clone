@@ -37,6 +37,7 @@ const Checkout: React.FC = () => {
                       (item: any): JSX.Element => {
                         return (
                           <CheckoutProduct
+                            quantity={item.quantity}
                             id={item.id}
                             image={item.image}
                             title={item.title}

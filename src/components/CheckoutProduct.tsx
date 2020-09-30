@@ -1,8 +1,9 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useEffect, Fragment } from "react";
 import { useStateValue } from "./MyContext";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import NumberFormat from "react-number-format";
 import "./CheckoutProduct.css";
 
 interface IProps {
@@ -12,11 +13,10 @@ interface IProps {
   price: number;
   discountedPrice: number;
   discount: number;
+  quantity: number;
 }
 
 const CheckoutProduct: React.FC<IProps> = (props) => {
-  const [itemNumber, setItemNumber] = useState<number>(1);
-
   // @ts-ignore
   const [{ basket }, dispatch] = useStateValue();
   const removeProduct = (): void => {
@@ -26,10 +26,20 @@ const CheckoutProduct: React.FC<IProps> = (props) => {
     });
   };
 
+  const quantityDecrease = (): void => {
+    dispatch({ type: "QTYDOWN", id: props.id });
+  };
+
+  const quantityIncrease = (): void => {
+    props.quantity === 2
+      ? alert("You cannot add more than two products")
+      : dispatch({ type: "QTYUP", id: props.id });
+  };
+
   useEffect(() => {
-    itemNumber === 0 && removeProduct();
-    setItemNumber(1);
-  }, [itemNumber]);
+    props.quantity === 0 && removeProduct();
+  }, [props.quantity]);
+
   let deliveryDate: string;
   const m_names: string[] = new Array(
     "January",
@@ -60,17 +70,14 @@ const CheckoutProduct: React.FC<IProps> = (props) => {
           <Col sm={2} className="checkout__product">
             <img src={props.image} className="checkout__product__img" />
             <div>
-              <button onClick={(): void => setItemNumber(itemNumber - 1)}>
-                -
-              </button>
+              <button onClick={quantityDecrease}>-</button>
               <input
+                readOnly
                 type="text"
-                value={itemNumber}
+                value={props.quantity}
                 className="w-25 text-center ml-1 mr-1"
               />
-              <button onClick={(): void => setItemNumber(itemNumber + 1)}>
-                +
-              </button>
+              <button onClick={quantityIncrease}>+</button>
             </div>
           </Col>
           <Col sm={5} className="text-start mt-3">

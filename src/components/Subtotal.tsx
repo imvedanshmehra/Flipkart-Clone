@@ -9,7 +9,7 @@ import NumberFormat from "react-number-format";
 const Subtotal: React.FC = () => {
   // @ts-ignore
   const [{ basket }] = useStateValue();
-  console.log(getBasketTotal(basket));
+
   return (
     <Fragment>
       <Jumbotron className="bg-white mt-4 mb-4 p-2 ">

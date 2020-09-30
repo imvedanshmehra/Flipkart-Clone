@@ -14,6 +14,7 @@ type IProps = {
   price: JSX.Element;
   discountedPrice?: JSX.Element;
   discount?: number;
+  quantity: number;
 };
 
 const Products: React.FC<IProps> = ({
@@ -24,6 +25,7 @@ const Products: React.FC<IProps> = ({
   price,
   discountedPrice,
   discount,
+  quantity,
 }) => {
   const [wishlisted, setWishlisted] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>(" ADD TO CART");
@@ -41,6 +43,7 @@ const Products: React.FC<IProps> = ({
         price,
         discountedPrice,
         discount,
+        quantity,
       },
     });
     setButtonText("ADDED TO CART");

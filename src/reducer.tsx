@@ -3,15 +3,17 @@ export const initialState = {
   user: null,
 };
 
-export const getBasketTotal = (basket: any) =>
+export const getBasketTotal = (basket: []) =>
   basket?.reduce(
-    (amount: any, item: any) => item.price.props.value + amount,
+    (amount: number, item: any) =>
+      item.price.props.value * item.quantity + amount,
     0
   );
 
-export const totalDiscount = (basket: any) =>
+export const totalDiscount = (basket: []) =>
   basket?.reduce(
-    (amount: any, item: any) => item.discountedPrice.props.value + amount,
+    (amount: number, item: any) =>
+      item.discountedPrice.props.value * item.quantity + amount,
     0
   );
 
@@ -31,6 +33,16 @@ const reducer = (state: any, action: any) => {
         newBasket.splice(index, 1);
       }
       return { ...state, basket: newBasket };
+      break;
+    case "QTYUP":
+      let addedItem = state.basket.find((item: any) => item.id === action.id);
+      addedItem.quantity += 1;
+      return { ...state };
+      break;
+    case "QTYDOWN":
+      let removedItem = state.basket.find((item: any) => item.id === action.id);
+      removedItem.quantity -= 1;
+      return { ...state };
       break;
     case "SET_USER":
       return {

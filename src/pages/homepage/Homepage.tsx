@@ -37,6 +37,7 @@ const Homepage: React.FC = () => {
       <ProductsSlider>
         <div>
           <Products
+            quantity={1}
             id={1}
             rating={4.8}
             title={"Realme 5i (Aqua Blue, 64 GB)"}
@@ -64,6 +65,7 @@ const Homepage: React.FC = () => {
         </div>
         <div>
           <Products
+            quantity={1}
             id={2}
             rating={4.5}
             title={"Apple iPhone SE (Black, 64 GB)"}
@@ -91,6 +93,7 @@ const Homepage: React.FC = () => {
         </div>
         <div>
           <Products
+            quantity={1}
             id={3}
             rating={4.7}
             title={"OPPO Reno2 F (Lake Green, 256 GB)  (6 GB RAM)"}
@@ -118,6 +121,7 @@ const Homepage: React.FC = () => {
         </div>
         <div>
           <Products
+            quantity={1}
             id={4}
             rating={4.1}
             title={"I Kall K300 NEW (Blue, 64 GB)"}
@@ -145,6 +149,7 @@ const Homepage: React.FC = () => {
         </div>
         <div>
           <Products
+            quantity={1}
             id={4}
             rating={4.8}
             title={"Realme 5i (Aqua Blue, 64 GB)"}
@@ -172,6 +177,7 @@ const Homepage: React.FC = () => {
         </div>
         <div>
           <Products
+            quantity={1}
             id={4}
             rating={4.8}
             title={"Realme 5i (Aqua Blue, 64 GB)"}
@@ -199,6 +205,7 @@ const Homepage: React.FC = () => {
         </div>
         <div>
           <Products
+            quantity={1}
             id={4}
             rating={4.8}
             title={"Realme 5i (Aqua Blue, 64 GB)"}
