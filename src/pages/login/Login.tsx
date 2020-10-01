@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link, useHistory } from "react-router-dom";
@@ -14,6 +14,7 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [validated, setValidated] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -29,39 +30,42 @@ const Login: React.FC = () => {
           auth && history.push("./");
         })
         // @ts-ignore
-        .catch((error) => alert(error));
+        .catch((error) => setErrorMessage(error));
     }
   };
 
   return (
-    <Jumbotron className="bg-white w-25 ml-auto mr-auto mt-5 shadow-sm">
-      <Form
-        className=" ml-auto  login__form"
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-      >
-        <EmailInput
-          class="login-inputs"
-          value={email}
-          handleChange={(e) => setEmail(e.target.value)}
-        />
-        <PasswordInput
-          class="login-inputs"
-          placeHolder="Enter your password"
-          value={password}
-          handleChange={(e) => setPassword(e.target.value)}
-        />
-        <Button type="submit" block className="login-btn p-2">
-          Login
-        </Button>
-        <div className="signup">
-          <Link to="/signup" className="signup-link">
-            New to Flipkart? Create an account
-          </Link>
-        </div>
-      </Form>
-    </Jumbotron>
+    <Fragment>
+      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+      <Jumbotron className="bg-white w-25 ml-auto mr-auto mt-5 shadow-sm">
+        <Form
+          className=" ml-auto  login__form"
+          noValidate
+          validated={validated}
+          onSubmit={handleSubmit}
+        >
+          <EmailInput
+            class="login-inputs"
+            value={email}
+            handleChange={(e) => setEmail(e.target.value)}
+          />
+          <PasswordInput
+            class="login-inputs"
+            placeHolder="Enter your password"
+            value={password}
+            handleChange={(e) => setPassword(e.target.value)}
+          />
+          <Button type="submit" block className="login-btn p-2">
+            Login
+          </Button>
+          <div className="signup">
+            <Link to="/signup" className="signup-link">
+              New to Flipkart? Create an account
+            </Link>
+          </div>
+        </Form>
+      </Jumbotron>
+    </Fragment>
   );
 };
 export default Login;

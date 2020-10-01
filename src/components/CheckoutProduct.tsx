@@ -3,7 +3,6 @@ import { useStateValue } from "./MyContext";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import NumberFormat from "react-number-format";
 import "./CheckoutProduct.css";
 
 interface IProps {
@@ -14,31 +13,20 @@ interface IProps {
   discountedPrice: number;
   discount: number;
   quantity: number;
+  quantityIncrease: any;
+  quantityDecrease: any;
 }
 
 const CheckoutProduct: React.FC<IProps> = (props) => {
   // @ts-ignore
   const [{ basket }, dispatch] = useStateValue();
+
   const removeProduct = (): void => {
     dispatch({
       type: "REMOVE_FROM_BASKET",
       id: props.id,
     });
   };
-
-  const quantityDecrease = (): void => {
-    dispatch({ type: "QTYDOWN", id: props.id });
-  };
-
-  const quantityIncrease = (): void => {
-    props.quantity === 2
-      ? alert("You cannot add more than two products")
-      : dispatch({ type: "QTYUP", id: props.id });
-  };
-
-  useEffect(() => {
-    props.quantity === 0 && removeProduct();
-  }, [props.quantity]);
 
   let deliveryDate: string;
   const m_names: string[] = new Array(
@@ -70,14 +58,14 @@ const CheckoutProduct: React.FC<IProps> = (props) => {
           <Col sm={2} className="checkout__product">
             <img src={props.image} className="checkout__product__img" />
             <div>
-              <button onClick={quantityDecrease}>-</button>
+              <button onClick={props.quantityDecrease}>-</button>
               <input
                 readOnly
                 type="text"
                 value={props.quantity}
                 className="w-25 text-center ml-1 mr-1"
               />
-              <button onClick={quantityIncrease}>+</button>
+              <button onClick={props.quantityIncrease}>+</button>
             </div>
           </Col>
           <Col sm={5} className="text-start mt-3">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CheckoutProduct from "../../components/CheckoutProduct";
 import Subtotal from "../../components/Subtotal";
 import { useStateValue } from "../../components/MyContext";
@@ -8,11 +8,27 @@ import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import Button from "react-bootstrap/Button";
 import emptyCart from "../../assets/emptyCart.png";
+import Alert from "react-bootstrap/Alert";
 import "./Checkout.css";
 
 const Checkout: React.FC = () => {
   // @ts-ignore
-  const [{ basket }] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const quantityIncrease = (id: number, qty: number): void => {
+    qty < 2
+      ? dispatch({ type: "QTYUP", id: id })
+      : setErrorMessage("Oops! One customer can buy maximum of two quantity");
+  };
+  const quantityDecrease = (id: number, qty: number): void => {
+    if (qty === 1) {
+      dispatch({ type: "REMOVE_FROM_BASKET", id: id });
+    } else if (qty <= 2) {
+      setErrorMessage("");
+      dispatch({ type: "QTYDOWN", id: id });
+    }
+  };
   return (
     <div className="checkout__contianer">
       <Container>
@@ -33,6 +49,9 @@ const Checkout: React.FC = () => {
                   </div>
                 ) : (
                   <div>
+                    {errorMessage && (
+                      <Alert variant="danger">{errorMessage}</Alert>
+                    )}
                     {basket.map(
                       (item: any): JSX.Element => {
                         return (
@@ -44,6 +63,12 @@ const Checkout: React.FC = () => {
                             price={item.price}
                             discountedPrice={item.discountedPrice}
                             discount={item.discount}
+                            quantityIncrease={() =>
+                              quantityIncrease(item.id, item.quantity)
+                            }
+                            quantityDecrease={() =>
+                              quantityDecrease(item.id, item.quantity)
+                            }
                           />
                         );
                       }
