@@ -28,6 +28,9 @@ const reducer = (state: any, action: any) => {
       const index = state.basket.findIndex(
         (basketItem: any) => basketItem.id === action.id
       );
+      case "EMPTY_BASKET":
+        return {...state, basket: []};
+        break;
 
       if (index >= 0) {
         newBasket.splice(index, 1);

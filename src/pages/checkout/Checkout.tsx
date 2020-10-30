@@ -8,6 +8,7 @@ import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import Button from "react-bootstrap/Button";
 import emptyCart from "../../assets/emptyCart.png";
+import { useHistory } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import "./Checkout.css";
 
@@ -29,6 +30,7 @@ const Checkout: React.FC = () => {
       dispatch({ type: "QTYDOWN", id: id });
     }
   };
+  const history = useHistory();
   return (
     <div className="checkout__contianer">
       <Container>
@@ -74,7 +76,13 @@ const Checkout: React.FC = () => {
                       }
                     )}
                     <div className="order__btn__container p-4">
-                      <Button variant="custom" className="pl-5 pr-5 pt-2 pb-2">
+                      <Button
+                        variant="custom"
+                        className="pl-5 pr-5 pt-2 pb-2"
+                        onClick={(e: React.MouseEvent<HTMLElement>) =>
+                          history.push("/payment")
+                        }
+                      >
                         PLACE ORDER
                       </Button>
                     </div>

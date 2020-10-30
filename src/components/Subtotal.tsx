@@ -12,7 +12,7 @@ const Subtotal: React.FC = () => {
 
   return (
     <Fragment>
-      <Jumbotron className="bg-white mt-4 mb-4 p-2 ">
+      <Jumbotron className="bg-white mt-4 mb-4 p-2 shadow-sm">
         <h6 className="text-secondary ">PRICE DETAILS</h6>
         <hr />
         <Row>

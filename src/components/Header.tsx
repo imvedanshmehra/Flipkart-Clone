@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
@@ -12,7 +12,7 @@ import "./Header.css";
 
 const Header: React.FC = () => {
   // @ts-ignore
-  let [{ basket, user }, dispatch] = useStateValue();
+  let [{ basket, user }] = useStateValue();
 
   const handleAuthentication = (): void => {
     if (user) {

@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link, useHistory } from "react-router-dom";
@@ -30,13 +30,17 @@ const Login: React.FC = () => {
           auth && history.push("./");
         })
         // @ts-ignore
-        .catch((error) => setErrorMessage(error));
+        .catch((error) => setErrorMessage(error.message));
     }
   };
 
   return (
-    <Fragment>
-      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+    <>
+      {errorMessage && (
+        <Alert variant="danger" className="w-50 mt-1 mr-auto ml-auto">
+          {errorMessage}
+        </Alert>
+      )}
       <Jumbotron className="bg-white w-25 ml-auto mr-auto mt-5 shadow-sm">
         <Form
           className=" ml-auto  login__form"
@@ -65,7 +69,7 @@ const Login: React.FC = () => {
           </div>
         </Form>
       </Jumbotron>
-    </Fragment>
+    </>
   );
 };
 export default Login;

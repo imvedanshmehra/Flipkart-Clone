@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.payment__panel_header:focus {
+  outline: 0;
+}
+.payment__active_header_panel {
+  background-color: #2874f0;
+  color: white;
+  text-align: left;
+}
+.payment__header_panel {
+  text-align: left;
+  background-color: #fff;
+  color: #000;
+}
+.payment__steps {
+  float: left;
+  background-color: #f0f0f0;
+  color: #2887f0;
+  padding: 2px 5px;
+}
+.payment__login_info {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.1px;
+}
+.payment__logout {
+  color: #2887f0;
+  cursor: pointer;
+}
+.payment__checkout_btn {
+  border-radius: 0;
+  background-color: #fb641b;
+  border: none;
+  padding: 12px 35px;
+}
+.payment__checkout_btn:hover {
+  background-color: #fb641b;
+}
+.payment__checkout_btn:focus {
+  background-color: #fb641b;
+}
+
+.payment__icons {
+  color: #2874f0;
+}

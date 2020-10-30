@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from "react";
+import React, { Fragment } from "react";
 import { useStateValue } from "./MyContext";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -19,7 +19,7 @@ interface IProps {
 
 const CheckoutProduct: React.FC<IProps> = (props) => {
   // @ts-ignore
-  const [{ basket }, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   const removeProduct = (): void => {
     dispatch({
