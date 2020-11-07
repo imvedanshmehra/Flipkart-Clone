@@ -14,7 +14,7 @@ import "./Checkout.css";
 
 const Checkout: React.FC = () => {
   // @ts-ignore
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const quantityIncrease = (id: number, qty: number): void => {
@@ -80,7 +80,7 @@ const Checkout: React.FC = () => {
                         variant="custom"
                         className="pl-5 pr-5 pt-2 pb-2"
                         onClick={(e: React.MouseEvent<HTMLElement>) =>
-                          history.push("/payment")
+                          history.push(user ? "/payment" : "/login")
                         }
                       >
                         PLACE ORDER
