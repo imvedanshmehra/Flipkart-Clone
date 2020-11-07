@@ -12,6 +12,7 @@ import { useStateValue } from "./components/MyContext";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import "./App.css";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const promise = loadStripe(
   "pk_test_51HXPJiALBtiLlXJisQevunzT5S5IAb1kE4XfAlBw1HinkajEr60p9QH0LSTv7WdOdQrp1zbEMkpF91spTk4L1SXE00DZNhOzrC"
@@ -48,7 +49,7 @@ const App: React.FC = () => {
           <Route path="/payment">
             <Header />
             <Elements stripe={promise}>
-              <Payment />
+              <ProtectedRoute component={Payment}/>
             </Elements>
           </Route>
           <Route path="/signup">
